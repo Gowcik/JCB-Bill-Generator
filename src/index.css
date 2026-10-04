@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+
+  /* Centralized Light Theme Variables */
+  --color-background: #F5F6F8;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-text: #111827;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  --color-primary: #FFCC00;
+  --color-primary-hover: #E6B800;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Centralized Dark Theme Variables */
+  --color-background: #0B0F14;
+  --color-surface: #151B23;
+  --color-surface-elevated: #1C2430;
+  --color-text: #F9FAFB;
+  --color-text-secondary: #9CA3AF;
+  --color-border: #26303D;
+  --color-primary: #FFCC00;
+  --color-primary-hover: #E6B800;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+}
+
+html {
+  background-color: #0B0F14;
+}
+
+html:not(.dark) {
+  background-color: #F5F6F8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Dedicated Print Stylesheet */
+@page {
+  size: A4 portrait;
+  margin: 12mm;
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide app navigation, headers, footers, buttons and dialog overlays */
+  nav,
+  header,
+  footer,
+  aside,
+  button,
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* JCB Machine Subtle Movement Keyframes */
+@keyframes jcb-drive {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(2px) translateY(-1.5px) rotate(1deg);
+  }
+  50% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-2px) translateY(-1px) rotate(-1deg);
+  }
+}
+
+@keyframes jcb-bucket {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(4deg);
+  }
+}
+
+.animate-jcb-drive {
+  animation: jcb-drive 1.2s ease-in-out infinite;
+}
+
+.animate-jcb-bucket {
+  transform-origin: 22px 42px;
+  animation: jcb-bucket 1.2s ease-in-out infinite;
+}

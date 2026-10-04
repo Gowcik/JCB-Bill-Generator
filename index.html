@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" style="background-color: #0B0F14;">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0B0F14" />
+    <style>
+      html, body, #root {
+        background-color: #0B0F14;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script>
+      (function() {
+        try {
+          var t = localStorage.getItem('jcb_theme');
+          if (t === 'light') {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.backgroundColor = '#F5F6F8';
+          } else {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.backgroundColor = '#0B0F14';
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>JCB Bill Generator</title>
+  </head>
+  <body style="background-color: #0B0F14;">
+    <div id="root" style="background-color: inherit; min-height: 100%;"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
